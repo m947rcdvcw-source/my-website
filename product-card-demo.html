@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProductCard Demo — A.T.C Supply</title>
+  <link rel="stylesheet" href="atc-tokens.css">
+  <style>
+    /* ========================================
+       ProductCard Component
+       A.T.C Supply 1993 Design System
+       ======================================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background: var(--color-surface);
+      color: var(--color-ink);
+      padding: 40px 24px;
+      line-height: 1.5;
+    }
+
+    .demo-header {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+    }
+
+    .demo-header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .demo-header p {
+      color: var(--color-muted);
+      font-size: 15px;
+    }
+
+    /* Grid demo */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ========== PRODUCT CARD ========== */
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--color-white);
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      color: inherit;
+      transition:
+        box-shadow var(--duration-normal) var(--ease-default),
+        transform var(--duration-normal) var(--ease-default);
+    }
+
+    .product-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .product-card:focus-visible {
+      outline: 2px solid var(--color-primary-700);
+      outline-offset: 3px;
+    }
+
+    /* Image */
+    .product-card__image {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--color-surface);
+    }
+
+    .product-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--duration-normal) var(--ease-default);
+    }
+
+    .product-card:hover .product-card__image img {
+      transform: scale(1.04);
+    }
+
+    /* Badge */
+    .product-card__badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+      padding: 0 10px;
+      background: var(--color-primary-800);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: var(--radius-full);
+    }
+
+    /* Body */
+    .product-card__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 16px;
+    }
+
+    .product-card__category {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-primary-700);
+    }
+
+    .product-card__title {
+      margin: 6px 0 8px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--color-ink);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-card__desc {
+      font-size: 13px;
+      color: var(--color-muted);
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    /* CTA */
+    .product-card__cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding: 10px 12px;
+      border: 1px solid var(--color-line-strong);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-primary-800);
+      transition: all var(--duration-normal) var(--ease-default);
+    }
+
+    .product-card:hover .product-card__cta {
+      background: var(--color-primary-800);
+      color: white;
+      border-color: var(--color-primary-800);
+    }
+
+    .product-card__cta-arrow {
+      font-size: 14px;
+      transition: transform var(--duration-fast) var(--ease-default);
+    }
+
+    .product-card:hover .product-card__cta-arrow {
+      transform: translateX(2px);
+    }
+
+    /* Placeholder image style (khi chưa có ảnh thật) */
+    .product-card__placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--color-primary-100), var(--color-primary-50));
+      color: var(--color-primary-700);
+      font-size: 42px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .product-card__body {
+        padding: 12px;
+      }
+
+      .product-card__title {
+        font-size: 14px;
+      }
+
+      .product-card__desc {
+        font-size: 12px;
+        -webkit-line-clamp: 2;
+      }
+
+      .product-card__cta {
+        padding: 8px 10px;
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-header">
+    <h1>ProductCard Component</h1>
+    <p>Demo sử dụng Design Tokens của A.T.C Supply 1993</p>
+  </div>
+
+  <div class="product-grid">
+
+    <!-- Card 1 - Có badge -->
+    <a href="#" class="product-card">
+      <div class="product-card__image">
+        <div class="product-card__placeholder">💧</div>
+        <span class="product-card__badge">Nổi bật</span>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__category">Tưới nhỏ giọt</span>
+        <h3 class="product-card__title">Ống LDPE 16mm dày 1.0mm</h3>
+        <p class="product-card__desc">Ống nhỏ giọt chất lượng cao, chịu áp tốt, phù hợp tưới rau màu và cây công nghiệp.</p>
+        <div class="product-card__cta">
+          <span>Liên hệ báo giá</span>
+          <span class="product-card__cta-arrow">↗</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="#" class="product-card">
+      <div class="product-card__image">
+        <div class="product-card__placeholder">🔧</div>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__category">Thiết bị tưới</span>
+        <h3 class="product-card__title">Béc tưới phun mưa 360°</h3>
+        <p class="product-card__desc">Béc tưới đều, tiết kiệm nước, dễ lắp đặt cho nhiều loại cây trồng.</p>
+        <div class="product-card__cta">
+          <span>Liên hệ báo giá</span>
+          <span class="product-card__cta-arrow">↗</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="#" class="product-card">
+      <div class="product-card__image">
+        <div class="product-card__placeholder">🌀</div>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__category">Lọc nước</span>
+        <h3 class="product-card__title">Bộ lọc đĩa 2 inch</h3>
+        <p class="product-card__desc">Lọc hiệu quả tạp chất, bảo vệ hệ thống tưới và kéo dài tuổi thọ thiết bị.</p>
+        <div class="product-card__cta">
+          <span>Liên hệ báo giá</span>
+          <span class="product-card__cta-arrow">↗</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 4 -->
+    <a href="#" class="product-card">
+      <div class="product-card__image">
+        <div class="product-card__placeholder">🔩</div>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__category">Phụ kiện</span>
+        <h3 class="product-card__title">Khởi thủy 16mm có van</h3>
+        <p class="product-card__desc">Phụ kiện kết nối ống chính với dây nhỏ giọt, có van khóa tiện lợi.</p>
+        <div class="product-card__cta">
+          <span>Liên hệ báo giá</span>
+          <span class="product-card__cta-arrow">↗</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+</body>
+</html>

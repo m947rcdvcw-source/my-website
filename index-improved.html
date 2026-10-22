@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d32">
+  <meta name="description" content="A.T.C Supply 1993 cung cấp thiết bị, vật tư và giải pháp tưới tiêu cho nông nghiệp. Khám phá danh mục sản phẩm và gửi yêu cầu báo giá.">
+  <title>A.T.C Supply 1993 | Thiết bị và giải pháp tưới tiêu</title>
+  <link rel="stylesheet" href="../Atcwebsite/assets/css/style.css">
+  <!-- Design Tokens + Hero -->
+  <link rel="stylesheet" href="atc-tokens.css">
+  <link rel="stylesheet" href="hero.css">
+  <link rel="stylesheet" href="category-card.css">
+  <style>
+    /* ===== Overrides ưu tiên cao ===== */
+
+    /* Navigation gọn hơn */
+    .nav-list { gap: clamp(16px, 1.8vw, 28px); }
+    .nav-link { font-size: 14px; font-weight: 600; }
+
+    /* ProductCard mới */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card-new {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid var(--color-line, #e0e8e2);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(13, 45, 37, 0.08);
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .product-card-new:hover {
+      box-shadow: 0 12px 28px rgba(13, 45, 37, 0.12);
+    }
+    .product-card-new:focus-visible {
+      outline: 2px solid #28755a;
+      outline-offset: 3px;
+    }
+
+    .product-card-new__image {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f4f8f5;
+    }
+    .product-card-new__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+    .product-card-new:hover .product-card-new__image img {
+      transform: scale(1.04);
+    }
+    .product-card-new__placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #e7f1eb, #f4f8f5);
+      color: #28755a;
+      font-size: 42px;
+    }
+    .product-card-new__badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+      padding: 0 10px;
+      background: #1b5746;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: 9999px;
+    }
+
+    .product-card-new__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 16px;
+    }
+    .product-card-new__category {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #28755a;
+    }
+    .product-card-new__title {
+      margin: 6px 0 8px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #172b25;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-card-new__desc {
+      font-size: 13px;
+      color: #63736c;
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .product-card-new__cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding: 10px 12px;
+      border: 1px solid #c5d4cb;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #1b5746;
+      transition: all 0.25s ease;
+    }
+    .product-card-new:hover .product-card-new__cta {
+      background: #1b5746;
+      color: #fff;
+      border-color: #1b5746;
+    }
+
+    /* Mobile nav accordion for Tài nguyên */
+    @media (max-width: 980px) {
+      .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .product-card-new__body { padding: 12px; }
+      .product-card-new__title { font-size: 14px; }
+      .product-card-new__desc { font-size: 12px; }
+      .product-card-new__cta { padding: 8px 10px; font-size: 11px; }
+    }
+  </style>
+  <script src="../Atcwebsite/assets/js/main.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <p>Giải pháp tưới tiêu thông minh hiện đại</p>
+      <div class="topbar__links">
+        <a href="lien-he.html">Liên hệ A.T.C</a>
+        <span aria-hidden="true">•</span>
+        <a href="bao-gia.html">Yêu cầu báo giá</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER – Navigation mới -->
+  <header class="site-header">
+    <div class="container header__main">
+      <a class="brand" href="index.html" aria-label="A.T.C Supply 1993 - Trang chủ">
+        <span class="brand__mark" aria-hidden="true">ATC</span>
+        <span class="brand__text"><strong>A.T.C SUPPLY</strong><small>EST. 1993</small></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="sr-only">Mở menu</span>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primary-navigation" aria-label="Điều hướng chính">
+        <ul class="nav-list">
+          <li><a class="nav-link is-current" href="index.html">Trang chủ</a></li>
+
+          <li class="nav-item has-dropdown">
+            <button class="nav-link dropdown-toggle" type="button" aria-expanded="false" aria-controls="products-menu">
+              Sản phẩm <span class="chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" id="products-menu">
+              <li><a href="san-pham.html">Tất cả sản phẩm</a></li>
+              <li><a href="danh-muc/he-thong-tuoi-nho-giot.html">Hệ thống tưới nhỏ giọt</a></li>
+              <li><a href="danh-muc/thiet-bi-tuoi.html">Thiết bị tưới</a></li>
+              <li><a href="danh-muc/loc-nuoc.html">Thiết bị lọc nước</a></li>
+              <li><a href="danh-muc/ong-va-phu-kien.html">Ống và phụ kiện đường ống</a></li>
+              <li><a href="danh-muc/vat-tu-lap-dat.html">Vật tư lắp đặt</a></li>
+            </ul>
+          </li>
+
+          <li><a class="nav-link" href="giai-phap.html">Giải pháp</a></li>
+          <li><a class="nav-link" href="dich-vu.html">Dịch vụ</a></li>
+
+          <!-- Gộp Kiến thức + Dự án thành Tài nguyên -->
+          <li class="nav-item has-dropdown">
+            <button class="nav-link dropdown-toggle" type="button" aria-expanded="false" aria-controls="resources-menu">
+              Tài nguyên <span class="chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" id="resources-menu">
+              <li><a href="kien-thuc.html">Kiến thức kỹ thuật</a></li>
+              <li><a href="du-an.html">Dự án thực tế</a></li>
+            </ul>
+          </li>
+
+          <li><a class="nav-link" href="ve-atc.html">Về A.T.C</a></li>
+
+          <!-- Liên hệ chỉ hiện trên mobile -->
+          <li class="nav-mobile-contact">
+            <a class="nav-link" href="lien-he.html">Liên hệ</a>
+          </li>
+          <li class="nav-mobile-contact">
+            <a class="button button--primary button--full" href="bao-gia.html">
+              Yêu cầu báo giá <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <a class="button button--primary header__cta" href="bao-gia.html">
+        Yêu cầu báo giá <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO (cải tiến) -->
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="home-hero__shade"></div>
+
+      <div class="container home-hero__inner">
+        <div class="home-hero__copy">
+          <!-- Eyebrow -->
+          <span class="home-eyebrow">
+            <span class="home-eyebrow__line"></span>
+            A.T.C SUPPLY 1993
+          </span>
+
+          <!-- Title -->
+          <h1 id="home-title">
+            Giải pháp tưới tiêu toàn diện<br>
+            <span>cho nền nông nghiệp hiện đại</span>
+          </h1>
+
+          <!-- Lead -->
+          <p class="home-hero__lead">
+            Cung cấp thiết bị, vật tư và giải pháp tưới tiêu cho nông nghiệp —
+            hướng đến sử dụng nước hiệu quả và vận hành ổn định.
+          </p>
+
+          <!-- Actions -->
+          <div class="hero-actions">
+            <a class="button button--primary" href="san-pham.html">
+              Khám phá sản phẩm <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button button--outline button--on-dark" href="lien-he.html">
+              Liên hệ tư vấn <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- Proof points -->
+          <div class="home-hero__proof">
+            <span><b aria-hidden="true">✓</b> Thiết bị tưới đa dạng</span>
+            <span><b aria-hidden="true">✓</b> Tư vấn theo nhu cầu</span>
+            <span><b aria-hidden="true">✓</b> Hỗ trợ kỹ thuật</span>
+          </div>
+        </div>
+
+        <!-- Side note – chỉ hiện từ tablet trở lên (CSS xử lý) -->
+        <div class="home-hero__side-note">
+          <span class="side-note__icon" aria-hidden="true">⌁</span>
+          <div>
+            <strong>Tưới đúng nhu cầu</strong>
+            <small>Giải pháp phù hợp từng hệ thống</small>
+          </div>
+        </div>
+      </div>
+
+      <a class="hero-scroll" href="#danh-muc" aria-label="Cuộn đến danh mục sản phẩm">
+        <span></span> Khám phá A.T.C
+      </a>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <section class="quick-links" aria-label="Khám phá website">
+      <div class="container quick-links__grid">
+        <a class="quick-link" href="san-pham.html">
+          <span class="quick-link__icon" aria-hidden="true">▦</span>
+          <strong>Sản phẩm</strong>
+          <small>Thiết bị và vật tư tưới</small>
+          <span class="quick-link__arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="quick-link" href="giai-phap.html">
+          <span class="quick-link__icon" aria-hidden="true">♧</span>
+          <strong>Giải pháp</strong>
+          <small>Chọn hệ thống phù hợp</small>
+          <span class="quick-link__arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="quick-link" href="dich-vu.html">
+          <span class="quick-link__icon" aria-hidden="true">⚙</span>
+          <strong>Dịch vụ</strong>
+          <small>Tư vấn và hỗ trợ kỹ thuật</small>
+          <span class="quick-link__arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="quick-link" href="kien-thuc.html">
+          <span class="quick-link__icon" aria-hidden="true">▤</span>
+          <strong>Kiến thức</strong>
+          <small>Thông tin kỹ thuật hữu ích</small>
+          <span class="quick-link__arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="quick-link" href="du-an.html">
+          <span class="quick-link__icon" aria-hidden="true">⌂</span>
+          <strong>Dự án</strong>
+          <small>Ứng dụng thực tế</small>
+          <span class="quick-link__arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="quick-link" href="dang-ky-dai-ly.html">
+          <span class="quick-link__icon" aria-hidden="true">⇄</span>
+          <strong>Đối tác B2B</strong>
+          <small>Hợp tác cùng A.T.C</small>
+          <span class="quick-link__arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- DANH MỤC SẢN PHẨM (cải tiến) -->
+    <section class="section categories-section" id="danh-muc">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">DANH MỤC SẢN PHẨM</span>
+            <h2>Thiết bị và vật tư cho hệ thống tưới</h2>
+            <p>Tìm nhanh theo nhóm thiết bị và nhu cầu sử dụng.</p>
+          </div>
+          <a class="text-link" href="san-pham.html">Xem tất cả sản phẩm <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="category-grid-new">
+          <!-- 1. Tưới nhỏ giọt -->
+          <a class="category-card-new" href="danh-muc/he-thong-tuoi-nho-giot.html">
+            <div class="category-card-new__media">
+              <span class="category-card-new__icon" aria-hidden="true">💧</span>
+            </div>
+            <div class="category-card-new__body">
+              <h3 class="category-card-new__title">Hệ thống tưới nhỏ giọt</h3>
+              <p class="category-card-new__desc">Ống LDPE, dây nhỏ giọt và phụ kiện</p>
+              <span class="category-card-new__arrow">Xem danh mục <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <!-- 2. Thiết bị tưới -->
+          <a class="category-card-new" href="danh-muc/thiet-bi-tuoi.html">
+            <div class="category-card-new__media">
+              <span class="category-card-new__icon" aria-hidden="true">🔧</span>
+            </div>
+            <div class="category-card-new__body">
+              <h3 class="category-card-new__title">Thiết bị tưới</h3>
+              <p class="category-card-new__desc">Béc tưới, van xả khí, van giảm áp</p>
+              <span class="category-card-new__arrow">Xem danh mục <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <!-- 3. Lọc nước -->
+          <a class="category-card-new" href="danh-muc/loc-nuoc.html">
+            <div class="category-card-new__media">
+              <span class="category-card-new__icon" aria-hidden="true">🛡️</span>
+            </div>
+            <div class="category-card-new__body">
+              <h3 class="category-card-new__title">Thiết bị lọc nước</h3>
+              <p class="category-card-new__desc">Bộ lọc cho hệ thống tưới</p>
+              <span class="category-card-new__arrow">Xem danh mục <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <!-- 4. Ống & phụ kiện -->
+          <a class="category-card-new" href="danh-muc/ong-va-phu-kien.html">
+            <div class="category-card-new__media">
+              <span class="category-card-new__icon" aria-hidden="true">🔩</span>
+            </div>
+            <div class="category-card-new__body">
+              <h3 class="category-card-new__title">Ống và phụ kiện đường ống</h3>
+              <p class="category-card-new__desc">Ống PVC, phụ kiện PVC và HDPE</p>
+              <span class="category-card-new__arrow">Xem danh mục <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <!-- 5. Vật tư lắp đặt -->
+          <a class="category-card-new" href="danh-muc/vat-tu-lap-dat.html">
+            <div class="category-card-new__media">
+              <span class="category-card-new__icon" aria-hidden="true">⚙️</span>
+            </div>
+            <div class="category-card-new__body">
+              <h3 class="category-card-new__title">Phụ kiện & vật tư lắp đặt</h3>
+              <p class="category-card-new__desc">Phụ kiện PIVOT, bulong và vật tư</p>
+              <span class="category-card-new__arrow">Xem danh mục <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GIẢI PHÁP -->
+    <section class="solutions-band">
+      <div class="container solutions-band__inner">
+        <div class="solutions-band__copy">
+          <span class="section-kicker section-kicker--light">GIẢI PHÁP TƯỚI TIÊU</span>
+          <h2>Tưới hiệu quả hơn<br>từ lựa chọn phù hợp</h2>
+          <p>Từ tưới nhỏ giọt đến lọc nước và tưới tự động, A.T.C định hướng giúp khách hàng tìm hiểu các lựa chọn theo cây trồng, nguồn nước và quy mô hệ thống.</p>
+          <a class="button button--white" href="giai-phap.html">Khám phá giải pháp <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="solution-cards">
+          <a class="solution-card" href="giai-phap.html#tuoi-nho-giot">
+            <div class="solution-card__image solution-img--drip" role="img" aria-label="Minh họa tưới nhỏ giọt"></div>
+            <div><strong>Tưới nhỏ giọt</strong><small>Cấp nước trực tiếp vùng rễ</small></div>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="solution-card" href="giai-phap.html#tuoi-phun">
+            <div class="solution-card__image solution-img--sprinkler" role="img" aria-label="Minh họa tưới phun"></div>
+            <div><strong>Tưới phun</strong><small>Phân phối nước trên diện rộng</small></div>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="solution-card" href="giai-phap.html#loc-nuoc">
+            <div class="solution-card__image solution-img--filter" role="img" aria-label="Minh họa hệ thống lọc nước"></div>
+            <div><strong>Lọc nước</strong><small>Hỗ trợ bảo vệ hệ thống</small></div>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="solution-card" href="giai-phap.html#tuoi-tu-dong">
+            <div class="solution-card__image solution-img--smart" role="img" aria-label="Minh họa hệ thống tưới tự động"></div>
+            <div><strong>Tưới tự động</strong><small>Điều khiển theo nhu cầu</small></div>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SẢN PHẨM TIÊU BIỂU – dùng ProductCard mới -->
+    <section class="section featured-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">SẢN PHẨM TIÊU BIỂU</span>
+            <h2>Khám phá thiết bị từ danh mục A.T.C</h2>
+            <p>Một số sản phẩm tiêu biểu. Hình ảnh và thông số sẽ được cập nhật khi có tư liệu chính thức.</p>
+          </div>
+          <a class="text-link" href="san-pham.html">Mở danh mục <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="featured-grid">
+          <!-- Card 1 -->
+          <a href="bao-gia.html?san-pham=ong-ldpe-d16" class="product-card-new">
+            <div class="product-card-new__image">
+              <div class="product-card-new__placeholder">💧</div>
+              <span class="product-card-new__badge">Nổi bật</span>
+            </div>
+            <div class="product-card-new__body">
+              <span class="product-card-new__category">Tưới nhỏ giọt</span>
+              <h3 class="product-card-new__title">Ống LDPE 16mm dày 1.0mm</h3>
+              <p class="product-card-new__desc">Ống nhỏ giọt chất lượng cao, chịu áp tốt, phù hợp tưới rau màu và cây công nghiệp.</p>
+              <div class="product-card-new__cta">
+                <span>Liên hệ báo giá</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 2 -->
+          <a href="bao-gia.html?san-pham=van-xa-khi" class="product-card-new">
+            <div class="product-card-new__image">
+              <div class="product-card-new__placeholder">🔧</div>
+            </div>
+            <div class="product-card-new__body">
+              <span class="product-card-new__category">Thiết bị tưới</span>
+              <h3 class="product-card-new__title">Van xả khí tưới</h3>
+              <p class="product-card-new__desc">Bảo vệ hệ thống khỏi túi khí, giúp nước lưu thông ổn định và kéo dài tuổi thọ đường ống.</p>
+              <div class="product-card-new__cta">
+                <span>Liên hệ báo giá</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 3 -->
+          <a href="bao-gia.html?san-pham=day-nho-giot" class="product-card-new">
+            <div class="product-card-new__image">
+              <div class="product-card-new__placeholder">🌀</div>
+            </div>
+            <div class="product-card-new__body">
+              <span class="product-card-new__category">Tưới nhỏ giọt</span>
+              <h3 class="product-card-new__title">Dây nhỏ giọt</h3>
+              <p class="product-card-new__desc">Các lựa chọn dây nhỏ giọt theo khoảng cách lỗ và lưu lượng phù hợp từng loại cây.</p>
+              <div class="product-card-new__cta">
+                <span>Liên hệ báo giá</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 4 -->
+          <a href="bao-gia.html?san-pham=bo-loc" class="product-card-new">
+            <div class="product-card-new__image">
+              <div class="product-card-new__placeholder">🛡️</div>
+            </div>
+            <div class="product-card-new__body">
+              <span class="product-card-new__category">Lọc nước</span>
+              <h3 class="product-card-new__title">Bộ lọc hệ thống tưới</h3>
+              <p class="product-card-new__desc">Lọc tạp chất hiệu quả, bảo vệ béc tưới và kéo dài tuổi thọ toàn hệ thống.</p>
+              <div class="product-card-new__cta">
+                <span>Liên hệ báo giá</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 5 -->
+          <a href="bao-gia.html?san-pham=phu-kien-duong-ong" class="product-card-new">
+            <div class="product-card-new__image">
+              <div class="product-card-new__placeholder">🔩</div>
+            </div>
+            <div class="product-card-new__body">
+              <span class="product-card-new__category">Phụ kiện</span>
+              <h3 class="product-card-new__title">Phụ kiện đường ống</h3>
+              <p class="product-card-new__desc">Khởi thủy, co, Tê, van khóa… đầy đủ phụ kiện kết nối theo nhu cầu lắp đặt.</p>
+              <div class="product-card-new__cta">
+                <span>Liên hệ báo giá</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VỀ A.T.C -->
+    <section class="section about-preview">
+      <div class="container about-preview__grid">
+        <div class="about-photo" role="img" aria-label="Cánh đồng nông nghiệp xanh với hệ thống tưới">
+          <div class="about-photo__badge"><strong>A.T.C</strong><span>Supply 1993</span></div>
+        </div>
+        <div class="about-copy">
+          <span class="section-kicker">VỀ A.T.C SUPPLY 1993</span>
+          <h2>Đồng hành cùng nhu cầu tưới tiêu thực tế</h2>
+          <p>A.T.C Supply 1993 cung cấp thiết bị, vật tư và giải pháp tưới tiêu thông minh hiện đại. Website được xây dựng để khách hàng dễ tìm hiểu danh mục, tham khảo giải pháp và gửi yêu cầu tư vấn.</p>
+          <ul class="about-points">
+            <li><span>✓</span> Danh mục thiết bị tưới và phụ kiện</li>
+            <li><span>✓</span> Thông tin giải pháp theo nhu cầu</li>
+            <li><span>✓</span> Kênh yêu cầu báo giá trực tiếp</li>
+            <li><span>✓</span> Kết nối khách hàng và đối tác</li>
+          </ul>
+          <a class="button button--primary" href="ve-atc.html">Tìm hiểu về A.T.C <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- KIẾN THỨC -->
+    <section class="section knowledge-preview">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">KIẾN THỨC & ỨNG DỤNG</span>
+            <h2>Tham khảo trước khi chọn thiết bị</h2>
+            <p>Nội dung định hướng cho thư viện kiến thức; bài viết chi tiết sẽ được bổ sung ở phần xây dựng nội dung.</p>
+          </div>
+          <a class="text-link" href="kien-thuc.html">Đến thư viện kiến thức <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="knowledge-grid">
+          <a class="knowledge-card" href="kien-thuc.html#chon-he-thong">
+            <div class="knowledge-card__image knowledge-image--field"></div>
+            <div class="knowledge-card__body">
+              <span>HƯỚNG DẪN</span>
+              <h3>Các yếu tố cần xem xét khi chọn hệ thống tưới</h3>
+              <p>Cây trồng, nguồn nước, địa hình và nhu cầu vận hành.</p>
+              <b>Đọc nội dung <i aria-hidden="true">→</i></b>
+            </div>
+          </a>
+          <a class="knowledge-card" href="kien-thuc.html#loc-nuoc">
+            <div class="knowledge-card__image knowledge-image--water"></div>
+            <div class="knowledge-card__body">
+              <span>THIẾT BỊ</span>
+              <h3>Vì sao cần quan tâm đến lọc nước tưới?</h3>
+              <p>Tìm hiểu vai trò của thiết bị lọc trong hệ thống tưới.</p>
+              <b>Đọc nội dung <i aria-hidden="true">→</i></b>
+            </div>
+          </a>
+          <a class="knowledge-card" href="kien-thuc.html#ong-phu-kien">
+            <div class="knowledge-card__image knowledge-image--plants"></div>
+            <div class="knowledge-card__body">
+              <span>LẮP ĐẶT</span>
+              <h3>Chọn ống và phụ kiện theo nhu cầu hệ thống</h3>
+              <p>Đối chiếu kích thước và thông số trước khi đặt hàng.</p>
+              <b>Đọc nội dung <i aria-hidden="true">→</i></b>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA ĐỐI TÁC -->
+    <section class="partner-cta">
+      <div class="container partner-cta__inner">
+        <div class="partner-cta__symbol" aria-hidden="true">↔</div>
+        <div>
+          <span class="section-kicker">DÀNH CHO ĐẠI LÝ & ĐỐI TÁC</span>
+          <h2>Cùng phát triển giải pháp tưới tiêu</h2>
+          <p>Gửi thông tin để A.T.C tiếp nhận nhu cầu hợp tác kinh doanh.</p>
+        </div>
+        <a class="button button--outline" href="dang-ky-dai-ly.html">Đăng ký hợp tác <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer__main">
+      <div class="footer-brand-block">
+        <a class="brand brand--footer" href="index.html" aria-label="A.T.C Supply 1993 - Trang chủ">
+          <span class="brand__mark" aria-hidden="true">ATC</span>
+          <span class="brand__text"><strong>A.T.C SUPPLY</strong><small>EST. 1993</small></span>
+        </a>
+        <p class="footer-tagline">Cung cấp giải pháp tưới tiêu thông minh hiện đại.</p>
+        <p class="footer-description">Đồng hành cùng khách hàng trong việc lựa chọn thiết bị và giải pháp tưới phù hợp với nhu cầu thực tế.</p>
+      </div>
+      <div class="footer-column">
+        <h2>Sản phẩm</h2>
+        <ul>
+          <li><a href="san-pham.html">Tất cả sản phẩm</a></li>
+          <li><a href="danh-muc/he-thong-tuoi-nho-giot.html">Hệ thống tưới nhỏ giọt</a></li>
+          <li><a href="danh-muc/thiet-bi-tuoi.html">Thiết bị tưới</a></li>
+          <li><a href="danh-muc/ong-va-phu-kien.html">Ống và phụ kiện</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h2>Khám phá</h2>
+        <ul>
+          <li><a href="giai-phap.html">Giải pháp</a></li>
+          <li><a href="dich-vu.html">Dịch vụ</a></li>
+          <li><a href="kien-thuc.html">Kiến thức</a></li>
+          <li><a href="du-an.html">Dự án</a></li>
+          <li><a href="ve-atc.html">Về A.T.C</a></li>
+        </ul>
+      </div>
+      <div class="footer-column footer-contact">
+        <h2>Kết nối với A.T.C</h2>
+        <p>Đang cần tư vấn thiết bị hoặc giải pháp tưới?</p>
+        <a class="footer-quote-link" href="bao-gia.html">Gửi yêu cầu báo giá <span aria-hidden="true">↗</span></a>
+        <a class="footer-text-link" href="lien-he.html">Thông tin liên hệ</a>
+        <a class="footer-text-link" href="dang-ky-dai-ly.html">Đăng ký đại lý</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="current-year">2026</span> A.T.C Supply 1993. Bảo lưu mọi quyền.</p>
+      <div>
+        <a href="chinh-sach.html">Chính sách</a>
+        <a href="lien-he.html">Liên hệ</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="back-to-top" href="#top" aria-label="Lên đầu trang" hidden>↑</a>
+</body>
+</html>

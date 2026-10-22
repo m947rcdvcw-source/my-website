@@ -1,0 +1,131 @@
+/* =========================================================
+   A.T.C Supply 1993 — Design Tokens
+   Ready for Webflow / Framer / any CSS project
+   Version 1.0 — 2026-10-22
+   ========================================================= */
+
+:root {
+  /* ----------------------------------------
+     COLOR — Primary
+     ---------------------------------------- */
+  --color-primary-950: #0d2d25;
+  --color-primary-900: #123d32;
+  --color-primary-800: #1b5746;
+  --color-primary-700: #28755a;
+  --color-primary-600: #2f8a6a;
+  --color-primary-100: #e7f1eb;
+  --color-primary-50:  #f4f8f5;
+
+  /* ----------------------------------------
+     COLOR — Neutral / Ink
+     ---------------------------------------- */
+  --color-ink:          #172b25;
+  --color-ink-soft:     #2a3d35;
+  --color-muted:        #63736c;
+  --color-muted-light:  #8a9a92;
+  --color-line:         #e0e8e2;
+  --color-line-strong:  #c5d4cb;
+
+  /* ----------------------------------------
+     COLOR — Surface
+     ---------------------------------------- */
+  --color-white:         #ffffff;
+  --color-surface:       #f7faf8;
+  --color-surface-dark:  #0f2a22;
+
+  /* ----------------------------------------
+     COLOR — Semantic
+     ---------------------------------------- */
+  --color-success:  #2f8a6a;
+  --color-warning:  #c9a227;
+  --color-error:    #c45c4a;
+  --color-info:     #3a7ca5;
+
+  /* ----------------------------------------
+     TYPOGRAPHY
+     ---------------------------------------- */
+  --font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --font-regular:   400;
+  --font-medium:    500;
+  --font-semibold:  600;
+  --font-bold:      700;
+  --font-extrabold: 800;
+
+  /* Type scale (desktop values) */
+  --text-display:   56px;
+  --text-h1:        42px;
+  --text-h2:        30px;
+  --text-h3:        20px;
+  --text-h4:        17px;
+  --text-body-lg:   17px;
+  --text-body:      15px;
+  --text-body-sm:   14px;
+  --text-caption:   13px;
+  --text-overline:  12px;
+  --text-button:    13px;
+
+  /* ----------------------------------------
+     SPACING (4px base)
+     ---------------------------------------- */
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ----------------------------------------
+     RADIUS
+     ---------------------------------------- */
+  --radius-none: 0;
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-full: 9999px;
+
+  /* ----------------------------------------
+     SHADOWS
+     ---------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(13, 45, 37, 0.06);
+  --shadow-sm: 0 4px 12px rgba(13, 45, 37, 0.08);
+  --shadow-md: 0 12px 28px rgba(13, 45, 37, 0.10);
+  --shadow-lg: 0 18px 48px rgba(13, 45, 37, 0.12);
+  --shadow-xl: 0 24px 60px rgba(13, 45, 37, 0.16);
+
+  /* ----------------------------------------
+     MOTION
+     ---------------------------------------- */
+  --duration-fast:   150ms;
+  --duration-normal: 250ms;
+  --duration-slow:   400ms;
+  --ease-default:    cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-out:        cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ----------------------------------------
+     LAYOUT
+     ---------------------------------------- */
+  --container-max:       1200px;
+  --container-padding-x: 24px;
+}
+
+/* Optional: Mobile type scale override */
+@media (max-width: 767px) {
+  :root {
+    --text-display:  36px;
+    --text-h1:       30px;
+    --text-h2:       24px;
+    --text-h3:       18px;
+    --text-h4:       16px;
+    --text-body-lg:  16px;
+    --text-body:     15px;
+  }
+}

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A.T.C Supply 1993 — Design System Preview</title>
+  <link rel="stylesheet" href="atc-tokens.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-family);
+      color: var(--color-ink);
+      background: var(--color-surface);
+      line-height: 1.6;
+      padding: 40px 24px 80px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* Header */
+    .preview-header {
+      background: var(--color-primary-950);
+      color: white;
+      padding: 48px 40px;
+      border-radius: var(--radius-xl);
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .preview-header::before {
+      content: "";
+      position: absolute;
+      top: -80px; right: -60px;
+      width: 280px; height: 280px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+    .preview-header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .preview-header p {
+      color: rgba(255,255,255,0.7);
+      font-size: 15px;
+    }
+    .preview-header .badge {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 14px;
+      background: rgba(255,255,255,0.12);
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* Section */
+    .section {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-line);
+    }
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-primary-700);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-line);
+    }
+
+    /* Color swatches */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 16px;
+    }
+    .swatch {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-line);
+      background: white;
+    }
+    .swatch-color {
+      height: 72px;
+      display: flex;
+      align-items: flex-end;
+      padding: 8px 10px;
+    }
+    .swatch-color span {
+      font-size: 11px;
+      font-weight: 600;
+      color: white;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    .swatch-info {
+      padding: 10px 12px;
+    }
+    .swatch-info strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .swatch-info code {
+      font-size: 11px;
+      color: var(--color-muted);
+      font-family: ui-monospace, monospace;
+    }
+
+    /* Light colors need dark text */
+    .swatch-color.light span {
+      color: var(--color-ink);
+      text-shadow: none;
+    }
+
+    /* Typography specimens */
+    .type-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      align-items: baseline;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--color-line);
+    }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta {
+      font-size: 12px;
+      color: var(--color-muted);
+      font-family: ui-monospace, monospace;
+    }
+    .type-meta strong {
+      display: block;
+      color: var(--color-ink);
+      font-family: var(--font-family);
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    /* Spacing */
+    .space-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .space-label {
+      width: 90px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: ui-monospace, monospace;
+    }
+    .space-bar {
+      height: 24px;
+      background: var(--color-primary-700);
+      border-radius: 4px;
+      min-width: 4px;
+    }
+    .space-value {
+      font-size: 12px;
+      color: var(--color-muted);
+    }
+
+    /* Radius */
+    .radius-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .radius-item {
+      text-align: center;
+    }
+    .radius-box {
+      width: 72px;
+      height: 72px;
+      background: var(--color-primary-100);
+      border: 2px solid var(--color-primary-700);
+      margin: 0 auto 8px;
+    }
+    .radius-item span {
+      font-size: 12px;
+      font-weight: 600;
+      display: block;
+    }
+    .radius-item small {
+      font-size: 11px;
+      color: var(--color-muted);
+    }
+
+    /* Shadows */
+    .shadow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+    }
+    .shadow-card {
+      background: white;
+      border-radius: var(--radius-md);
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Buttons demo */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: var(--radius-sm);
+      font-size: var(--text-button);
+      font-weight: 650;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-default);
+    }
+    .btn-primary {
+      background: var(--color-primary-800);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--color-primary-950); }
+    .btn-outline {
+      background: transparent;
+      color: var(--color-primary-900);
+      border-color: var(--color-line-strong);
+    }
+    .btn-outline:hover {
+      background: var(--color-primary-50);
+      border-color: var(--color-primary-700);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--color-primary-700);
+    }
+    .btn-ghost:hover { background: var(--color-primary-50); }
+    .btn-white {
+      background: white;
+      color: var(--color-primary-900);
+      border-color: white;
+    }
+
+    /* Cards demo */
+    .card-demo {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .demo-card {
+      background: white;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--duration-normal) var(--ease-default);
+    }
+    .demo-card:hover { box-shadow: var(--shadow-md); }
+    .demo-card-visual {
+      height: 120px;
+      background: linear-gradient(135deg, var(--color-primary-100), var(--color-primary-50));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: var(--color-primary-700);
+    }
+    .demo-card-body { padding: 16px; }
+    .demo-card-body .tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--color-primary-700);
+      text-transform: uppercase;
+    }
+    .demo-card-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 6px 0 8px;
+    }
+    .demo-card-body p {
+      font-size: 13px;
+      color: var(--color-muted);
+      margin-bottom: 12px;
+    }
+    .demo-card-cta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      border: 1px solid var(--color-line-strong);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-primary-800);
+    }
+
+    /* Footer note */
+    .note {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 13px;
+      color: var(--color-muted);
+    }
+    .note a { color: var(--color-primary-700); font-weight: 600; }
+
+    @media (max-width: 600px) {
+      body { padding: 20px 16px 60px; }
+      .preview-header { padding: 32px 24px; }
+      .preview-header h1 { font-size: 24px; }
+      .section { padding: 20px; }
+      .type-row { grid-template-columns: 1fr; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="preview-header">
+      <h1>A.T.C Supply 1993</h1>
+      <p>Design System Tokens — Visual Preview</p>
+      <span class="badge">Version 1.0 · Webflow & Framer ready</span>
+    </header>
+
+    <!-- COLORS -->
+    <section class="section">
+      <h2 class="section-title">1. Color — Primary</h2>
+      <div class="color-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#0d2d25"><span>950</span></div>
+          <div class="swatch-info"><strong>primary-950</strong><code>#0d2d25</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#123d32"><span>900</span></div>
+          <div class="swatch-info"><strong>primary-900</strong><code>#123d32</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#1b5746"><span>800</span></div>
+          <div class="swatch-info"><strong>primary-800</strong><code>#1b5746</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#28755a"><span>700</span></div>
+          <div class="swatch-info"><strong>primary-700</strong><code>#28755a</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#2f8a6a"><span>600</span></div>
+          <div class="swatch-info"><strong>primary-600</strong><code>#2f8a6a</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color light" style="background:#e7f1eb"><span>100</span></div>
+          <div class="swatch-info"><strong>primary-100</strong><code>#e7f1eb</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color light" style="background:#f4f8f5"><span>50</span></div>
+          <div class="swatch-info"><strong>primary-50</strong><code>#f4f8f5</code></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Color — Neutral & Semantic</h2>
+      <div class="color-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#172b25"><span>ink</span></div>
+          <div class="swatch-info"><strong>ink</strong><code>#172b25</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#2a3d35"><span>ink-soft</span></div>
+          <div class="swatch-info"><strong>ink-soft</strong><code>#2a3d35</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#63736c"><span>muted</span></div>
+          <div class="swatch-info"><strong>muted</strong><code>#63736c</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color light" style="background:#e0e8e2"><span style="color:#172b25">line</span></div>
+          <div class="swatch-info"><strong>line</strong><code>#e0e8e2</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#2f8a6a"><span>success</span></div>
+          <div class="swatch-info"><strong>success</strong><code>#2f8a6a</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#c9a227"><span>warning</span></div>
+          <div class="swatch-info"><strong>warning</strong><code>#c9a227</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#c45c4a"><span>error</span></div>
+          <div class="swatch-info"><strong>error</strong><code>#c45c4a</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#3a7ca5"><span>info</span></div>
+          <div class="swatch-info"><strong>info</strong><code>#3a7ca5</code></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPOGRAPHY -->
+    <section class="section">
+      <h2 class="section-title">2. Typography</h2>
+
+      <div class="type-row">
+        <div class="type-meta"><strong>Display</strong>56px / 800</div>
+        <div style="font-size:42px;font-weight:800;letter-spacing:-0.03em;line-height:1.1">Giải pháp tưới tiêu</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>H1</strong>42px / 800</div>
+        <div style="font-size:32px;font-weight:800;letter-spacing:-0.02em">Thiết bị và vật tư</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>H2</strong>30px / 700</div>
+        <div style="font-size:24px;font-weight:700">Danh mục sản phẩm</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>H3</strong>20px / 700</div>
+        <div style="font-size:18px;font-weight:700">Hệ thống tưới nhỏ giọt</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>Body</strong>15px / 400</div>
+        <div style="font-size:15px;line-height:1.65;max-width:520px">Cung cấp thiết bị, vật tư và giải pháp tưới tiêu cho nông nghiệp — hướng đến sử dụng nước hiệu quả và vận hành ổn định.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>Caption</strong>13px / 500</div>
+        <div style="font-size:13px;color:var(--color-muted)">Thiết bị tưới đa dạng · Tư vấn theo nhu cầu</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>Overline</strong>12px / 700</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.14em;color:var(--color-primary-700);text-transform:uppercase">A.T.C Supply 1993</div>
+      </div>
+    </section>
+
+    <!-- SPACING -->
+    <section class="section">
+      <h2 class="section-title">3. Spacing (4px base)</h2>
+      <div class="space-row"><div class="space-label">space-1</div><div class="space-bar" style="width:4px"></div><div class="space-value">4px</div></div>
+      <div class="space-row"><div class="space-label">space-2</div><div class="space-bar" style="width:8px"></div><div class="space-value">8px</div></div>
+      <div class="space-row"><div class="space-label">space-3</div><div class="space-bar" style="width:12px"></div><div class="space-value">12px</div></div>
+      <div class="space-row"><div class="space-label">space-4</div><div class="space-bar" style="width:16px"></div><div class="space-value">16px</div></div>
+      <div class="space-row"><div class="space-label">space-6</div><div class="space-bar" style="width:24px"></div><div class="space-value">24px</div></div>
+      <div class="space-row"><div class="space-label">space-8</div><div class="space-bar" style="width:32px"></div><div class="space-value">32px</div></div>
+      <div class="space-row"><div class="space-label">space-12</div><div class="space-bar" style="width:48px"></div><div class="space-value">48px</div></div>
+      <div class="space-row"><div class="space-label">space-16</div><div class="space-bar" style="width:64px"></div><div class="space-value">64px</div></div>
+      <div class="space-row"><div class="space-label">space-20</div><div class="space-bar" style="width:80px"></div><div class="space-value">80px</div></div>
+      <div class="space-row"><div class="space-label">space-24</div><div class="space-bar" style="width:96px"></div><div class="space-value">96px</div></div>
+    </section>
+
+    <!-- RADIUS -->
+    <section class="section">
+      <h2 class="section-title">4. Border Radius</h2>
+      <div class="radius-grid">
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:0"></div>
+          <span>none</span><small>0</small>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:6px"></div>
+          <span>sm</span><small>6px</small>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:8px"></div>
+          <span>md</span><small>8px</small>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:12px"></div>
+          <span>lg</span><small>12px</small>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:16px"></div>
+          <span>xl</span><small>16px</small>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:9999px"></div>
+          <span>full</span><small>9999px</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHADOWS -->
+    <section class="section">
+      <h2 class="section-title">5. Shadows</h2>
+      <div class="shadow-grid">
+        <div class="shadow-card" style="box-shadow:var(--shadow-xs)">shadow-xs</div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-sm)">shadow-sm</div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-md)">shadow-md</div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-lg)">shadow-lg</div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-xl)">shadow-xl</div>
+      </div>
+    </section>
+
+    <!-- BUTTONS -->
+    <section class="section">
+      <h2 class="section-title">6. Buttons (demo)</h2>
+      <div class="btn-row">
+        <button class="btn btn-primary">Yêu cầu báo giá ↗</button>
+        <button class="btn btn-outline">Liên hệ tư vấn →</button>
+        <button class="btn btn-ghost">Xem tất cả</button>
+      </div>
+      <div class="btn-row" style="background:var(--color-primary-900);padding:16px;border-radius:var(--radius-md)">
+        <button class="btn btn-white">Khám phá giải pháp →</button>
+      </div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="section">
+      <h2 class="section-title">7. Card (demo)</h2>
+      <div class="card-demo">
+        <div class="demo-card">
+          <div class="demo-card-visual">💧</div>
+          <div class="demo-card-body">
+            <div class="tag">Tưới nhỏ giọt</div>
+            <h3>Hệ thống tưới nhỏ giọt</h3>
+            <p>Ống LDPE, dây nhỏ giọt và phụ kiện chuyên dụng</p>
+            <div class="demo-card-cta"><span>Xem chi tiết</span><span>↗</span></div>
+          </div>
+        </div>
+        <div class="demo-card">
+          <div class="demo-card-visual">🔧</div>
+          <div class="demo-card-body">
+            <div class="tag">Thiết bị</div>
+            <h3>Thiết bị tưới</h3>
+            <p>Béc tưới, van xả khí, van giảm áp</p>
+            <div class="demo-card-cta"><span>Xem chi tiết</span><span>↗</span></div>
+          </div>
+        </div>
+        <div class="demo-card">
+          <div class="demo-card-visual">🌀</div>
+          <div class="demo-card-body">
+            <div class="tag">Lọc nước</div>
+            <h3>Thiết bị lọc nước</h3>
+            <p>Bộ lọc cho hệ thống tưới nông nghiệp</p>
+            <div class="demo-card-cta"><span>Xem chi tiết</span><span>↗</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="note">
+      Mở file <strong>preview.html</strong> bằng trình duyệt để xem trực quan.<br>
+      Tokens nằm trong <a href="atc-tokens.css">atc-tokens.css</a> · 
+      <a href="ATC-Design-System-Tokens.md">Tài liệu đầy đủ</a>
+    </p>
+
+  </div>
+</body>
+</html>

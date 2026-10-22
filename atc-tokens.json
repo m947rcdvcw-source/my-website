@@ -1,0 +1,99 @@
+{
+  "name": "A.T.C Supply 1993 Design Tokens",
+  "version": "1.0",
+  "updated": "2026-10-22",
+  "color": {
+    "primary": {
+      "950": "#0d2d25",
+      "900": "#123d32",
+      "800": "#1b5746",
+      "700": "#28755a",
+      "600": "#2f8a6a",
+      "100": "#e7f1eb",
+      "50": "#f4f8f5"
+    },
+    "ink": "#172b25",
+    "inkSoft": "#2a3d35",
+    "muted": "#63736c",
+    "mutedLight": "#8a9a92",
+    "line": "#e0e8e2",
+    "lineStrong": "#c5d4cb",
+    "white": "#ffffff",
+    "surface": "#f7faf8",
+    "surfaceDark": "#0f2a22",
+    "success": "#2f8a6a",
+    "warning": "#c9a227",
+    "error": "#c45c4a",
+    "info": "#3a7ca5"
+  },
+  "typography": {
+    "fontFamily": "Inter, \"Segoe UI\", system-ui, -apple-system, sans-serif",
+    "weight": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "extrabold": 800
+    },
+    "scale": {
+      "display": { "mobile": "36px", "desktop": "56px", "lineHeight": 1.08, "weight": 800, "letterSpacing": "-0.04em" },
+      "h1": { "mobile": "30px", "desktop": "42px", "lineHeight": 1.15, "weight": 800, "letterSpacing": "-0.03em" },
+      "h2": { "mobile": "24px", "desktop": "30px", "lineHeight": 1.25, "weight": 700, "letterSpacing": "-0.02em" },
+      "h3": { "mobile": "18px", "desktop": "20px", "lineHeight": 1.35, "weight": 700, "letterSpacing": "-0.01em" },
+      "h4": { "mobile": "16px", "desktop": "17px", "lineHeight": 1.4, "weight": 650 },
+      "bodyLg": { "mobile": "16px", "desktop": "17px", "lineHeight": 1.7, "weight": 400 },
+      "body": { "mobile": "15px", "desktop": "15px", "lineHeight": 1.65, "weight": 400 },
+      "bodySm": { "mobile": "14px", "desktop": "14px", "lineHeight": 1.6, "weight": 400 },
+      "caption": { "mobile": "13px", "desktop": "13px", "lineHeight": 1.5, "weight": 500 },
+      "overline": { "mobile": "11px", "desktop": "12px", "lineHeight": 1.4, "weight": 700, "letterSpacing": "0.14em" },
+      "button": { "mobile": "13px", "desktop": "13px", "lineHeight": 1.2, "weight": 650 }
+    }
+  },
+  "spacing": {
+    "0": "0",
+    "1": "4px",
+    "2": "8px",
+    "3": "12px",
+    "4": "16px",
+    "5": "20px",
+    "6": "24px",
+    "8": "32px",
+    "10": "40px",
+    "12": "48px",
+    "16": "64px",
+    "20": "80px",
+    "24": "96px"
+  },
+  "radius": {
+    "none": "0",
+    "sm": "6px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "16px",
+    "full": "9999px"
+  },
+  "shadow": {
+    "xs": "0 1px 2px rgba(13, 45, 37, 0.06)",
+    "sm": "0 4px 12px rgba(13, 45, 37, 0.08)",
+    "md": "0 12px 28px rgba(13, 45, 37, 0.10)",
+    "lg": "0 18px 48px rgba(13, 45, 37, 0.12)",
+    "xl": "0 24px 60px rgba(13, 45, 37, 0.16)"
+  },
+  "motion": {
+    "durationFast": "150ms",
+    "durationNormal": "250ms",
+    "durationSlow": "400ms",
+    "easeDefault": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+    "easeOut": "cubic-bezier(0.16, 1, 0.3, 1)"
+  },
+  "layout": {
+    "containerMax": "1200px",
+    "containerPaddingX": "24px"
+  },
+  "breakpoints": {
+    "mobile": "479px",
+    "tablet": "768px",
+    "desktop": "992px",
+    "wide": "1200px"
+  }
+}

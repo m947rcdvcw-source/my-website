@@ -1,0 +1,219 @@
+/* =========================================================
+   Category Card + Section — A.T.C Supply 1993
+   ========================================================= */
+
+/* Section spacing */
+.categories-section {
+  padding: 72px 0;
+  background: #fff;
+}
+
+.categories-section .section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.categories-section .section-kicker {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-primary-700, #28755a);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.categories-section .section-heading h2 {
+  margin: 0 0 8px;
+  color: var(--color-ink, #172b25);
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.categories-section .section-heading p {
+  margin: 0;
+  color: var(--color-muted, #63736c);
+  font-size: 15px;
+  max-width: 480px;
+}
+
+.categories-section .text-link {
+  flex-shrink: 0;
+  color: var(--color-primary-800, #1b5746);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.categories-section .text-link:hover {
+  color: var(--color-primary-950, #0d2d25);
+}
+
+/* Grid */
+.category-grid-new {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+/* ========== Category Card ========== */
+.category-card-new {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--color-line, #e0e8e2);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 12px rgba(13, 45, 37, 0.06);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.category-card-new:hover {
+  box-shadow: 0 12px 28px rgba(13, 45, 37, 0.11);
+  border-color: #c5d4cb;
+  transform: translateY(-2px);
+}
+
+.category-card-new:focus-visible {
+  outline: 2px solid var(--color-primary-700, #28755a);
+  outline-offset: 3px;
+}
+
+/* Image / Art area */
+.category-card-new__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(145deg, #e7f1eb 0%, #f4f8f5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.category-card-new__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.category-card-new:hover .category-card-new__media img {
+  transform: scale(1.05);
+}
+
+/* Icon placeholder khi chưa có ảnh */
+.category-card-new__icon {
+  font-size: 42px;
+  line-height: 1;
+  color: var(--color-primary-700, #28755a);
+  opacity: 0.9;
+  transition: transform 0.25s ease;
+}
+
+.category-card-new:hover .category-card-new__icon {
+  transform: scale(1.08);
+}
+
+/* Body */
+.category-card-new__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px 16px 18px;
+}
+
+.category-card-new__title {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-ink, #172b25);
+}
+
+.category-card-new__desc {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-muted, #63736c);
+  flex: 1;
+}
+
+.category-card-new__arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary-700, #28755a);
+  transition: gap 0.2s ease;
+}
+
+.category-card-new:hover .category-card-new__arrow {
+  gap: 8px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 1100px) {
+  .category-grid-new {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 980px) {
+  .categories-section {
+    padding: 56px 0;
+  }
+
+  .categories-section .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 680px) {
+  .categories-section {
+    padding: 48px 0;
+  }
+
+  .category-grid-new {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .category-card-new__body {
+    padding: 12px 12px 14px;
+  }
+
+  .category-card-new__title {
+    font-size: 13px;
+  }
+
+  .category-card-new__desc {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .category-card-new__icon {
+    font-size: 32px;
+  }
+
+  .category-card-new__arrow {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .category-grid-new {
+    grid-template-columns: 1fr;
+  }
+}
